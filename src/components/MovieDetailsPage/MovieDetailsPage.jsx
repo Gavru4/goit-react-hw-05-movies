@@ -15,27 +15,31 @@ const MovieDetailsPage = () => {
       .then(data => setOneMovi(data))
       .catch(eror => console.log(eror));
   }, [moviesId]);
-  console.log(moviesId);
-  console.log(oneMovi);
-  //   console.log(oneMovi.title);
+
   return (
-    <>
-      {/* <Link>Go back</Link> */}
-      <div>
-        <img {`${imgUrl} ${oneMovi?.poster_path}`}>
-        <h2>{oneMovi?.title}</h2>
-        <p>{oneMovi?.vote_average}</p>
-        <h3>Owerview</h3>
-        <p>{oneMovi?.owerview}</p>
-        <h3>Genders</h3>
-        <p>{oneMovi?.genders}</p>
-      </div>
-      <div>
-        <h2>Additional information</h2>
-        <Link>Cast</Link>
-        <Link>Reviews</Link>
-      </div>
-    </>
+    oneMovi && (
+      <>
+        <Link to="/">Go back</Link>
+        <div>
+          <div>
+            <img src={imgUrl + oneMovi.poster_path} alt="" />
+          </div>
+          <h2>{oneMovi.title}</h2>
+          <p>User Score: {oneMovi.vote_average}</p>
+          <h3>Owerview</h3>
+          <p>{oneMovi.overview}</p>
+          <h3>Genders</h3>
+          {oneMovi.genres.map(el => (
+            <p key={el.id}> {el.name}</p>
+          ))}
+        </div>
+        <div>
+          <h2>Additional information</h2>
+          <Link to={`/movies/${moviesId}/cast`}>Cast</Link>
+          <Link to={`/movies/${moviesId}/reviews`}>Reviews</Link>
+        </div>
+      </>
+    )
   );
 };
 

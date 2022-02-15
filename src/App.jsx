@@ -1,3 +1,4 @@
+import Cast from 'components/Cast/Cast';
 import HomePage from 'components/HomePage/HomePage';
 import MovieDetailsPage from 'components/MovieDetailsPage/MovieDetailsPage';
 import MoviesList from 'components/MoviesList/MoviesList';
@@ -16,6 +17,12 @@ const App = () => {
       </Route>
       <Route path={'/movies'}>
         <MoviesPage />
+      </Route>
+      <Route path={'/movies/:movieId/cast'}>
+        <Cast />
+      </Route>
+      <Route path={'/movies/:movieId/reviews'}>
+        <Cast />
       </Route>
     </Switch>
   );
