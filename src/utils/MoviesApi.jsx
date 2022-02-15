@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-//api.themoviedb.org/3/trending/all/day?api_key=<<api_key>>
-
+// more populare film
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
 export const trendingMovies = () => {
@@ -30,10 +29,9 @@ export const searchMovies = () => {
     });
 };
 
-// /3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
+// Details about movie
 
 export const getMovieDetails = id => {
-  // console.log(id);
   axios.defaults.params = {
     api_key: 'b0be04a794960ce58c426d9c28662f54',
     id,
@@ -47,15 +45,17 @@ export const getMovieDetails = id => {
     });
 };
 
-// /3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
+// Info about actors
 
-export const getMovieCredits = () => {
+export const getMovieCredits = id => {
   axios.defaults.params = {
     api_key: 'b0be04a794960ce58c426d9c28662f54',
+    language: 'en-US',
+    id,
   };
   return axios
-    .get('3/search/movie?&language=en-US&page=1&include_adult=false')
-    .then(({ data }) => data.hits)
+    .get(`movie/${id}/credits?&`)
+    .then(res => res.data)
     .catch(err => {
       throw err;
     });

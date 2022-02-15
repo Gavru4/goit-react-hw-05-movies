@@ -1,5 +1,7 @@
+import Cast from 'components/Cast/Cast';
+import Reviews from 'components/Reviews/Reviews';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Route, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { getMovieDetails } from 'utils/MoviesApi';
 
@@ -38,6 +40,12 @@ const MovieDetailsPage = () => {
           <Link to={`/movies/${moviesId}/cast`}>Cast</Link>
           <Link to={`/movies/${moviesId}/reviews`}>Reviews</Link>
         </div>
+        <Route path={'/movies/:movieId/reviews'}>
+          <Reviews />
+        </Route>
+        <Route path={'/movies/:movieId/cast'}>
+          <Cast />
+        </Route>
       </>
     )
   );
