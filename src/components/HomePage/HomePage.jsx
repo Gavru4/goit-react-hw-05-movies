@@ -1,23 +1,20 @@
-import MoviesList from 'components/MoviesList/MoviesList';
 import MoviesPage from 'components/MoviesPage/MoviesPage';
-import { NavLink, Route, Switch } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
+import s from './HomePage.module.css';
 
 const HomePage = () => {
   return (
-    <Switch>
+    <>
       <Route path={'/'}>
-        <NavLink to={'/'} activeStyle={{ color: 'red' }}>
-          Home
-        </NavLink>
-      </Route>
+        <nav className={s.nav}>
+          <NavLink to={'/'} exact>
+            Home
+          </NavLink>
 
-      <Route path={'/'}>
-        <MoviesList />
+          <NavLink to={'/movies'}>Movies</NavLink>
+        </nav>
       </Route>
-      <Route path={'/movies'}>
-        <MoviesPage />
-      </Route>
-    </Switch>
+    </>
   );
 };
 

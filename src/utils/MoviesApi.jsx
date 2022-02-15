@@ -8,22 +8,19 @@ export const trendingMovies = () => {
   axios.defaults.params = {
     api_key: 'b0be04a794960ce58c426d9c28662f54',
   };
-  return (
-    axios
-      .get('trending/all/day')
-      .then(({ data }) => data.results)
-      // .then(({ data }) => data.hits)
-      .catch(err => {
-        throw err;
-      })
-  );
+  return axios
+    .get('trending/all/day')
+    .then(({ data }) => data.results)
+    .catch(err => {
+      throw err;
+    });
 };
 
 // /3/search/movie?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
 
 export const searchMovies = () => {
   axios.defaults.params = {
-    key: 'b0be04a794960ce58c426d9c28662f54',
+    api_key: 'b0be04a794960ce58c426d9c28662f54',
   };
   return axios
     .get('3/search/movie?&language=en-US&page=1&include_adult=false')
@@ -35,13 +32,16 @@ export const searchMovies = () => {
 
 // /3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
 
-export const getMovieDetails = () => {
+export const getMovieDetails = id => {
+  // console.log(id);
   axios.defaults.params = {
-    key: 'b0be04a794960ce58c426d9c28662f54',
+    api_key: 'b0be04a794960ce58c426d9c28662f54',
+    id,
+    language: 'en-US',
   };
   return axios
-    .get('3/search/movie?&language=en-US&page=1&include_adult=false')
-    .then(({ data }) => data.hits)
+    .get(`movie/${id}?&`)
+    .then(res => res.data)
     .catch(err => {
       throw err;
     });
@@ -51,7 +51,7 @@ export const getMovieDetails = () => {
 
 export const getMovieCredits = () => {
   axios.defaults.params = {
-    key: 'b0be04a794960ce58c426d9c28662f54',
+    api_key: 'b0be04a794960ce58c426d9c28662f54',
   };
   return axios
     .get('3/search/movie?&language=en-US&page=1&include_adult=false')
@@ -65,7 +65,7 @@ export const getMovieCredits = () => {
 
 export const getMovieReviews = () => {
   axios.defaults.params = {
-    key: 'b0be04a794960ce58c426d9c28662f54',
+    api_key: 'b0be04a794960ce58c426d9c28662f54',
   };
   return axios
     .get('3/search/movie?&language=en-US&page=1&include_adult=false')

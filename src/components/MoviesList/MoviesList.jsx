@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { trendingMovies } from '../../utils/MoviesApi';
 
@@ -17,7 +18,7 @@ const MoviesList = () => {
       <ul>
         {movies.map(el => (
           <li key={el.id}>
-            <Link to={'/movies/:' + el.id}>{el?.title || el.name}</Link>
+            <Link to={'/movies/' + el.id}>{el?.title || el.name}</Link>
           </li>
         ))}
       </ul>
