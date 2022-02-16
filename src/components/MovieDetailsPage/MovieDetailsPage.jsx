@@ -21,6 +21,7 @@ const MovieDetailsPage = () => {
   const handleGoBack = () => {
     history.push(location.state.from);
   };
+  console.log(location.state.from);
 
   useEffect(() => {
     getMovieDetails(moviesId)
@@ -75,7 +76,7 @@ const MovieDetailsPage = () => {
             className={s.cast}
             to={{
               pathname: match.url + '/cast',
-              state: { from: location.state.from || '/' },
+              state: { from: location.state?.from || '/' },
             }}
           >
             Cast
@@ -84,7 +85,7 @@ const MovieDetailsPage = () => {
             className={s.reviews}
             to={{
               pathname: match.url + '/reviews',
-              state: { from: location.state.from || '/' },
+              state: { from: location.state?.from || '/' },
             }}
           >
             Reviews

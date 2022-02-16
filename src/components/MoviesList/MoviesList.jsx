@@ -1,9 +1,18 @@
 import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import s from './Movieslist.module.css';
+import PropTypes from 'prop-types';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
+// import { useHistory } from 'react-router-dom';
 
 const MoviesList = ({ movies }) => {
+  // const history = useHistory();
   const location = useLocation();
+
+  //  { if(movies === null || movies.length === 0) {
+  //   history.push('/movies');
+  //   Notify.failure('Please enter a valid request');
+  // }}
 
   return (
     movies && (
@@ -31,3 +40,7 @@ const MoviesList = ({ movies }) => {
 };
 
 export default MoviesList;
+
+MoviesList.propTypes = {
+  movies: PropTypes.array,
+};

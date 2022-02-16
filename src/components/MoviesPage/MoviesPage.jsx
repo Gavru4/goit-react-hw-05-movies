@@ -1,8 +1,9 @@
 import MoviesList from 'components/MoviesList/MoviesList';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { searchMovies } from 'utils/MoviesApi';
 import s from './MoviesPage.module.css';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const MoviesPage = () => {
   const history = useHistory();
@@ -23,8 +24,18 @@ const MoviesPage = () => {
       .then(request => setRequest(request.results))
       .catch(error => console.log(error));
 
+    if (input.trim() === '') {
+      return alert('Entre name');
+    }
     setinput('');
+
+    // if (request === null || request.length === 0) {
+    //   // history.push('/movies');
+    //   Notify.failure('Please enter a valid request');
+    //   return;
+    // }
   };
+
   return (
     <>
       <form className={s.wrepper} onSubmit={handleSubmit}>

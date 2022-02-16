@@ -1,7 +1,7 @@
 .list {
   display: flex;
   flex-wrap: wrap;
-  text-decoration: none;
+  list-style-type: none;
 }
 .img {
   width: 100%;
