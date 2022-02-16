@@ -16,6 +16,7 @@ const MovieDetailsPage = () => {
   const history = useHistory();
 
   const { moviesId } = useParams();
+
   const location = useLocation();
 
   const handleGoBack = () => {

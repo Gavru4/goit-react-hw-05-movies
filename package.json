@@ -1,5 +1,4 @@
 {
-  "homepage": "https://goitacademy.github.io/react-homework-template/",
   "name": "react-homework-template",
   "version": "0.1.0",
   "private": true,
@@ -23,7 +22,7 @@
     "eject": "react-scripts eject",
     "lint:js": "eslint src/**/*.{js,jsx}",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "netlify deploy -p"
   },
   "eslintConfig": {
     "extends": [
@@ -43,7 +42,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "gh-pages": "^3.2.3"
-  }
+  "devDependencies": {}
 }

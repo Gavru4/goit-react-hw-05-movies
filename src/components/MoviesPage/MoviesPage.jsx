@@ -1,5 +1,5 @@
 import MoviesList from 'components/MoviesList/MoviesList';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { searchMovies } from 'utils/MoviesApi';
 import s from './MoviesPage.module.css';
