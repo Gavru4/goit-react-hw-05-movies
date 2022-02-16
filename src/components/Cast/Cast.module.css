@@ -1,0 +1,28 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  text-decoration: none;
+}
+.img {
+  width: 100%;
+}
+.item {
+  width: calc(100% / 6 - 40px);
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.wrepper {
+  width: 1200px;
+  padding-left: 50px;
+}
+.character {
+  font-weight: 500;
+}
+.characterSpan {
+  font-weight: 700;
+  font-size: 18px;
+}
+.name {
+  font-weight: 700;
+  font-size: 18px;
+}

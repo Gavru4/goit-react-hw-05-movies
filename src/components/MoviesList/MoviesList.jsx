@@ -1,28 +1,32 @@
-import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { trendingMovies } from '../../utils/MoviesApi';
+import { NavLink } from 'react-router-dom';
+import s from './Movieslist.module.css';
 
-const MoviesList = () => {
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    trendingMovies()
-      .then(movies => setMovies(movies))
-      .catch(eror => console.log(eror));
-  }, []);
+const MoviesList = ({ movies }) => {
+  const location = useLocation();
 
   return (
-    <>
-      <h1>Trending Today</h1>
-      <ol>
-        {movies.map(el => (
-          <li key={el.id}>
-            <Link to={'/movies/' + el.id}>{el?.title || el.name}</Link>
-          </li>
-        ))}
-      </ol>
-    </>
+    movies && (
+      <div className={s.wrepper}>
+        <h1 className={s.title}>Trending Today</h1>
+        <ol>
+          {movies?.map(el => (
+            <li key={el.id} className={s.item}>
+              <NavLink
+                to={{
+                  pathname: '/movies/' + el.id,
+                  state: { from: location },
+                }}
+                className={s.link}
+                activeStyle={{ color: 'red' }}
+              >
+                {el?.title || el.name}
+              </NavLink>
+            </li>
+          ))}
+        </ol>
+      </div>
+    )
   );
 };
 

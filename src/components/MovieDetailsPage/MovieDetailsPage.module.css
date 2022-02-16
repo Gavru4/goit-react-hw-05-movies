@@ -1,0 +1,74 @@
+.conteiner {
+  background-image: url('../../img/kino1.jpg');
+  padding-top: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+}
+
+.wrepper {
+  /* background-color: aqua; */
+
+  display: flex;
+  margin-top: 20px;
+}
+.link {
+  font-size: 15px;
+  border-radius: 10%;
+  text-decoration: none;
+  padding: 5px;
+  color: red;
+  background-color: azure;
+}
+.link:hover {
+  background-color: blue;
+  color: white;
+}
+.img {
+  max-height: 400px;
+}
+.textConteiner {
+  padding-top: 15px;
+  margin-left: 20px;
+}
+.title {
+  margin-bottom: 10px;
+}
+.score {
+  margin-bottom: 10px;
+  font-size: 20px;
+  line-height: 1.2;
+}
+.text {
+  width: 400px;
+  margin-bottom: 10px;
+}
+.genres {
+  display: flex;
+}
+.genresName {
+  margin-right: 5px;
+}
+.genresName:last-child {
+  margin-right: 0;
+}
+.adminInfoWreper {
+  padding-bottom: 30px;
+}
+.adminTitle {
+  margin-left: 50px;
+  margin-bottom: 15px;
+  padding-top: 20px;
+}
+.cast {
+  font-size: 20px;
+
+  text-decoration: none;
+  margin-right: 20px;
+  margin-left: 50px;
+}
+.reviews {
+  font-size: 20px;
+
+  text-decoration: none;
+}

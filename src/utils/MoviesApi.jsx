@@ -15,15 +15,19 @@ export const trendingMovies = () => {
     });
 };
 
-// /3/search/movie?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
+///search   Movies
 
-export const searchMovies = () => {
+export const searchMovies = query => {
   axios.defaults.params = {
     api_key: 'b0be04a794960ce58c426d9c28662f54',
+    language: 'en-US',
+    include_adult: false,
+    page: 1,
+    query,
   };
   return axios
-    .get('3/search/movie?&language=en-US&page=1&include_adult=false')
-    .then(({ data }) => data.hits)
+    .get(`search/movie`)
+    .then(res => res.data)
     .catch(err => {
       throw err;
     });
@@ -34,11 +38,10 @@ export const searchMovies = () => {
 export const getMovieDetails = id => {
   axios.defaults.params = {
     api_key: 'b0be04a794960ce58c426d9c28662f54',
-    id,
     language: 'en-US',
   };
   return axios
-    .get(`movie/${id}?&`)
+    .get(`movie/${id}`)
     .then(res => res.data)
     .catch(err => {
       throw err;
@@ -54,7 +57,7 @@ export const getMovieCredits = id => {
     id,
   };
   return axios
-    .get(`movie/${id}/credits?&`)
+    .get(`movie/${id}/credits`)
     .then(res => res.data)
     .catch(err => {
       throw err;
@@ -71,7 +74,7 @@ export const getMovieReviews = id => {
     page: 1,
   };
   return axios
-    .get(`movie/${id}/reviews?`)
+    .get(`movie/${id}/reviews`)
     .then(res => res.data.results)
     .catch(err => {
       throw err;

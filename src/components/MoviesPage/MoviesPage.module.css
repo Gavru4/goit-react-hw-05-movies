@@ -1,0 +1,15 @@
+.wrepper {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: rgb(231, 114, 114);
+}
+.input {
+  padding: 5px;
+  border: 1px solid blue;
+  margin-right: 10px;
+}
+.btn {
+  padding: 5px;
+  border: 1px solid blue;
+}
