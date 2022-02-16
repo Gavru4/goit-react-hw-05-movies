@@ -15,13 +15,13 @@ const MoviesList = () => {
   return (
     <>
       <h1>Trending Today</h1>
-      <ul>
+      <ol>
         {movies.map(el => (
           <li key={el.id}>
             <Link to={'/movies/' + el.id}>{el?.title || el.name}</Link>
           </li>
         ))}
-      </ul>
+      </ol>
     </>
   );
 };

@@ -61,15 +61,18 @@ export const getMovieCredits = id => {
     });
 };
 
-// /3/movie/{movie_id}/reviews?api_key=<<api_key>>&language=en-US&page=1
+// Info about Reviews
 
-export const getMovieReviews = () => {
+export const getMovieReviews = id => {
   axios.defaults.params = {
     api_key: 'b0be04a794960ce58c426d9c28662f54',
+    id,
+    language: 'en-US',
+    page: 1,
   };
   return axios
-    .get('3/search/movie?&language=en-US&page=1&include_adult=false')
-    .then(({ data }) => data.hits)
+    .get(`movie/${id}/reviews?`)
+    .then(res => res.data.results)
     .catch(err => {
       throw err;
     });

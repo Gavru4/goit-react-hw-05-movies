@@ -3,11 +3,12 @@ import Reviews from 'components/Reviews/Reviews';
 import { useEffect, useState } from 'react';
 import { Route, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
 import { getMovieDetails } from 'utils/MoviesApi';
 
 const MovieDetailsPage = () => {
   const imgUrl = 'https://image.tmdb.org/t/p/w400';
-
+  const match = useRouteMatch();
   const [oneMovi, setOneMovi] = useState(null);
 
   const { moviesId } = useParams();
@@ -31,19 +32,23 @@ const MovieDetailsPage = () => {
           <h3>Owerview</h3>
           <p>{oneMovi.overview}</p>
           <h3>Genders</h3>
-          {oneMovi.genres.map(el => (
-            <p key={el.id}> {el.name}</p>
-          ))}
+          <ul>
+            {oneMovi.genres.map(el => (
+              <li key={el.id}>
+                <p> {el.name}</p>
+              </li>
+            ))}
+          </ul>
         </div>
         <div>
           <h2>Additional information</h2>
-          <Link to={`/movies/${moviesId}/cast`}>Cast</Link>
-          <Link to={`/movies/${moviesId}/reviews`}>Reviews</Link>
+          <Link to={match.url + '/cast'}>Cast</Link>
+          <Link to={match.url + '/reviews'}>Reviews</Link>
         </div>
-        <Route path={'/movies/:movieId/reviews'}>
+        <Route path={match.path + '/reviews'}>
           <Reviews />
         </Route>
-        <Route path={'/movies/:movieId/cast'}>
+        <Route path={match.path + '/cast'}>
           <Cast />
         </Route>
       </>
