@@ -1,6 +1,4 @@
 import HomePage from 'components/HomePage/HomePage';
-// import MovieDetailsPage from 'components/MovieDetailsPage/MovieDetailsPage';
-// import MoviesPage from 'components/MoviesPage/MoviesPage';
 import Nav from 'components/Nav/Nav';
 import { lazy, Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';

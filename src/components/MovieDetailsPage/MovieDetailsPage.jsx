@@ -22,7 +22,6 @@ const MovieDetailsPage = () => {
   const handleGoBack = () => {
     history.push(location.state.from);
   };
-  console.log(location.state.from);
 
   useEffect(() => {
     getMovieDetails(moviesId)
@@ -40,13 +39,6 @@ const MovieDetailsPage = () => {
           <button type="button" className={s.link} onClick={handleGoBack}>
             GoBack
           </button>
-          {/* <NavLink
-            className={s.link}
-        
-             to="/"
-          > */}
-          {/* Go back */}
-          {/* </NavLink> */}
           <div className={s.wrepper}>
             <div>
               <img
